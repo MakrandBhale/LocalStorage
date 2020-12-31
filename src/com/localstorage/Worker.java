@@ -12,7 +12,7 @@ public class Worker{
     private final File dbFile;
 
     private boolean newDataAvailable = false;
-    ConcurrentHashMap<String, String> shadowStorage;
+    ConcurrentHashMap<String, Packet> shadowStorage;
     private final ScheduledExecutorService scheduledExecutorService;
     private boolean shutDownWorker = false;
 
@@ -48,7 +48,7 @@ public class Worker{
         });
     }
 
-    void notifyWorker(ConcurrentHashMap<String, String> shadowStorage) {
+    void notifyWorker(ConcurrentHashMap<String, Packet> shadowStorage) {
         this.shadowStorage = shadowStorage;
         if(!this.newDataAvailable) {
             this.newDataAvailable = true;

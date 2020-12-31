@@ -8,16 +8,19 @@ import java.io.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LocalStorage{
-    private ConcurrentHashMap<String, String> shadowStorage;
+    private ConcurrentHashMap<String, Packet> shadowStorage;
     private final Worker worker;
     private static final String FILE_NAME = "datastore.db";
     private final String dbFilePath;
+
+
+
     public LocalStorage(String path) throws IOException {
         this.dbFilePath = path.concat("/").concat(FILE_NAME);
         try {
             this.shadowStorage = init();
         } catch (Exception e) {
-            System.out.println("Database not found. New database will be created at given path.");
+            System.out.println("Database not found or it is empty. New database will be created at given path.");
             this.shadowStorage = new ConcurrentHashMap<>();
         }
         worker = new Worker(dbFilePath);
@@ -27,14 +30,45 @@ public class LocalStorage{
         this(".");
     }
 
-    public void create(String key, String jsonString) throws Exception{
+    /***
+     * a bare bones create method.
+     * @param key specifying the key of the value
+     * @param jsonString jsonObject in string format
+     * @throws Exception
+     */
+
+    public void create(String key, String jsonString, int ttl) throws Exception{
         if(!validate(key, jsonString)) return;
         if(shadowStorage.containsKey(key)) {
-            throw new Exception("Key already exists");
+            Packet packet = shadowStorage.getOrDefault(key, null);
+            if(packet == null) {
+                throw new Exception("data not found");
+            }
+            /* if key is expired it can be reused.*/
+            if(!isExpired(packet)) {
+                throw new Exception("Key already exists");
+            }
         }
 
-        shadowStorage.put(key, jsonString);
+        Packet newPacket = new Packet(ttl, jsonString);
+        shadowStorage.put(key, newPacket);
         worker.notifyWorker(this.shadowStorage);
+    }
+
+
+    /***
+     * @param key specifying the key of the value
+     * @param jsonObject json object.
+     * @throws Exception
+     */
+    public void create(String key, JsonObject jsonObject) throws Exception{
+        String jsonString = jsonObject.toString();
+        create(key, jsonString);
+    }
+
+    public void create(String key, String jsonString) throws Exception {
+        Packet packet = new Packet(jsonString);
+        create(key, packet.toString());
     }
 
     private boolean validate(String key, String jsonString) throws Exception {
@@ -66,13 +100,20 @@ public class LocalStorage{
      */
     public JsonObject read(String key) throws Exception {
         if(this.shadowStorage.size() == 0) {
-            throw new Exception("Provided key not found in database. Available records: 0");
+            throw new Exception( "'" + key + "' key not found in database. Available records: 0");
         }
 
-        String jsonString = this.shadowStorage.getOrDefault(key, null);
-        if(jsonString == null) {
+        Packet packet = this.shadowStorage.getOrDefault(key, null);
+        if(packet == null) {
             throw new Exception("Provided key not found in database. Available records: " + this.shadowStorage.size());
         }
+
+        if(isExpired(packet)) {
+            this.delete(key); // deleting key and data.
+            throw new Exception("Key exceeded its time to live limit, will be deleted.");
+        }
+
+        String jsonString = packet.getJsonString();
         return new Gson().fromJson(jsonString, JsonObject.class);
     }
 
@@ -84,13 +125,22 @@ public class LocalStorage{
         worker.notifyWorker(this.shadowStorage);
     }
 
-    public ConcurrentHashMap<String, String> init() throws ClassNotFoundException, FileNotFoundException, IOException, EOFException {
+    public ConcurrentHashMap<String, Packet> init() throws ClassNotFoundException, FileNotFoundException, IOException, EOFException {
         Object ii = new ObjectInputStream(new FileInputStream(this.dbFilePath)).readObject();
-        return (ConcurrentHashMap<String, String>) ii;
+        return (ConcurrentHashMap<String, Packet>) ii;
     }
 
 
     public void close() {
         this.worker.shutDownWorker(true);
+    }
+
+    /***
+     * Checks validity of the key
+     * @param packet
+     * @return
+     */
+    private boolean isExpired(Packet packet) {
+        return packet.getValidTill() > 0 && packet.getValidTill() < System.currentTimeMillis();
     }
 }
