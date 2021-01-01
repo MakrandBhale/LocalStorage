@@ -145,6 +145,7 @@ public class LocalStorage{
 
 
     private boolean validate(String key, String jsonString) throws Exception {
+        if(key == null || jsonString == null) throw new IllegalArgumentException("Key and object can not be null.");
         if(key.length() == 0 || key.length() > 32) {
             throw new Exception("Key size must be greater than 0 and less than or equal to 32. Provided key length: " + key.length());
         }

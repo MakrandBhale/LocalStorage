@@ -24,12 +24,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da8b6f8b-3760-414b-b204-cdcd4f1fac3b" name="Default Changelist" comment="added time to live. Data will not be returned if read after ttl. Throws exception.">
+    <list default="true" id="da8b6f8b-3760-414b-b204-cdcd4f1fac3b" name="Default Changelist" comment="added builder class for LocalStorage initialisation">
+      <change afterPath="$PROJECT_DIR$/src/Tests/LocalStorageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LocalStorage.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LocalStorage.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/localstorage/LocalStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/localstorage/LocalStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/localstorage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/localstorage/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/localstorage/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/localstorage/Packet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/localstorage/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/localstorage/Worker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -59,13 +60,26 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.23333333" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Tests" />
+      <recent name="com.localstorage" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.LocalStorageTest.timeToLiveTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.localstorage.Main" />
       <module name="LocalStorage" />
@@ -76,8 +90,76 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LocalStorageTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LocalStorage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LocalStorageTest" />
+      <option name="METHOD_NAME" value="create" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalStorageTest.existingKeyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LocalStorage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LocalStorageTest" />
+      <option name="METHOD_NAME" value="existingKeyTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalStorageTest.longKeyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LocalStorage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LocalStorageTest" />
+      <option name="METHOD_NAME" value="longKeyTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalStorageTest.timeToLiveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LocalStorage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LocalStorageTest" />
+      <option name="METHOD_NAME" value="timeToLiveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LocalStorageTest.timeToLiveTest" />
+        <item itemvalue="JUnit.LocalStorageTest.existingKeyTest" />
+        <item itemvalue="JUnit.LocalStorageTest.longKeyTest" />
+        <item itemvalue="JUnit.LocalStorageTest.create" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -112,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609425144403</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added builder class for LocalStorage initialisation">
+      <created>1609492745954</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609492745954</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -135,7 +224,8 @@
     </ignored-roots>
     <MESSAGE value="initial commit" />
     <MESSAGE value="added time to live. Data will not be returned if read after ttl. Throws exception." />
-    <option name="LAST_COMMIT_MESSAGE" value="added time to live. Data will not be returned if read after ttl. Throws exception." />
+    <MESSAGE value="added builder class for LocalStorage initialisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added builder class for LocalStorage initialisation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="472" y="232" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609406506153">
@@ -146,6 +236,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609423568986" />
+    <state x="450" y="190" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1609492910861">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="450" y="190" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609492910861" />
     <state x="450" y="220" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1609419270081">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -158,26 +252,26 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="415" y="253" width="788" height="594" key="#xdebugger.evaluate/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609488255256" />
-    <state width="1397" height="259" key="GridCell.Tab.0.bottom" timestamp="1609491681666">
+    <state width="1397" height="291" key="GridCell.Tab.0.bottom" timestamp="1609495229039">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state width="1317" height="85" key="GridCell.Tab.0.bottom/0.0.1440.860/-1360.0.1360.728@-1360.0.1360.728" timestamp="1609408968583" />
-    <state width="1397" height="259" key="GridCell.Tab.0.bottom/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609491681666" />
-    <state width="1397" height="259" key="GridCell.Tab.0.center" timestamp="1609491681666">
+    <state width="1397" height="291" key="GridCell.Tab.0.bottom/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609495229039" />
+    <state width="1397" height="291" key="GridCell.Tab.0.center" timestamp="1609495229039">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state width="1317" height="85" key="GridCell.Tab.0.center/0.0.1440.860/-1360.0.1360.728@-1360.0.1360.728" timestamp="1609408968583" />
-    <state width="1397" height="259" key="GridCell.Tab.0.center/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609491681666" />
-    <state width="1397" height="259" key="GridCell.Tab.0.left" timestamp="1609491681666">
+    <state width="1397" height="291" key="GridCell.Tab.0.center/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609495229039" />
+    <state width="1397" height="291" key="GridCell.Tab.0.left" timestamp="1609495229039">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state width="1317" height="85" key="GridCell.Tab.0.left/0.0.1440.860/-1360.0.1360.728@-1360.0.1360.728" timestamp="1609408968583" />
-    <state width="1397" height="259" key="GridCell.Tab.0.left/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609491681666" />
-    <state width="1397" height="259" key="GridCell.Tab.0.right" timestamp="1609491681666">
+    <state width="1397" height="291" key="GridCell.Tab.0.left/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609495229039" />
+    <state width="1397" height="291" key="GridCell.Tab.0.right" timestamp="1609495229039">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state width="1317" height="85" key="GridCell.Tab.0.right/0.0.1440.860/-1360.0.1360.728@-1360.0.1360.728" timestamp="1609408968583" />
-    <state width="1397" height="259" key="GridCell.Tab.0.right/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609491681666" />
+    <state width="1397" height="291" key="GridCell.Tab.0.right/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609495229039" />
     <state width="1397" height="150" key="GridCell.Tab.1.bottom" timestamp="1609491674805">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -198,19 +292,24 @@
     </state>
     <state width="1317" height="134" key="GridCell.Tab.1.right/0.0.1440.860/-1360.0.1360.728@-1360.0.1360.728" timestamp="1609402105906" />
     <state width="1397" height="150" key="GridCell.Tab.1.right/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609491674805" />
-    <state x="200" y="4" key="SettingsEditor" timestamp="1609422100317">
+    <state x="200" y="4" key="SettingsEditor" timestamp="1609493024170">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="200" y="4" key="SettingsEditor/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609422100317" />
+    <state x="200" y="4" key="SettingsEditor/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609493024170" />
     <state x="200" y="4" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1609149323456" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1609425204426">
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1609492757755">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609425204426" />
-    <state x="424" y="321" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1609149314890">
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609492757755" />
+    <state x="424" y="321" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1609493039495">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state x="424" y="321" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609493039495" />
     <state x="424" y="321" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.860@0.0.1440.860" timestamp="1609149314890" />
+    <state x="491" y="152" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1609492912434">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="491" y="152" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609492912434" />
     <state x="102" y="50" key="new project wizard" timestamp="1609419938054">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
