@@ -23,6 +23,7 @@ public class Packet implements Serializable {
         }
         this.jsonString = jsonString;
     }
+
     /***
      *
      * @param jsonString a json object in string format
@@ -32,18 +33,38 @@ public class Packet implements Serializable {
     }
 
 
+    /**
+     * Gets valid till.
+     *
+     * @return the valid till
+     */
     public long getValidTill() {
         return validTill;
     }
 
+    /**
+     * Sets valid till.
+     *
+     * @param validTill the valid till
+     */
     public void setValidTill(long validTill) {
         this.validTill = validTill;
     }
 
+    /**
+     * Gets json string.
+     *
+     * @return the json string
+     */
     public String getJsonString() {
         return jsonString;
     }
 
+    /**
+     * Sets json string.
+     *
+     * @param jsonString the json string
+     */
     public void setJsonString(String jsonString) {
         this.jsonString = jsonString;
     }
