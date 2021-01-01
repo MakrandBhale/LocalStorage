@@ -3,14 +3,14 @@ a key-value based datastore
 
 ### How to use
 Just copy the `LocalStorage.jar` file in the `/lib` folder of your project.
-Note: the jar file is not updated, so you might want to build the artifact from the project source. 
+Which you can find [here](https://github.com/MakrandBhale/LocalStorage/blob/master/out/artifacts/LocalStorage_jar/LocalStorage.jar).  
 ### Syntax
 
 ```java
 LocalStorage localStorage = new LocalStorage.Builder()
-.atPath(YOUR_PATH)
-.fileName("DB_FILE_NAME.db")
-.build();
+                                    .atPath(YOUR_PATH)
+                                    .fileName("DB_FILE_NAME.db")
+                                    .build();
 
 // Example usage
 localStorage.create("sampleKey", "{someKey: someVal}");
@@ -49,8 +49,8 @@ delete(String key);
 ## How does it work
 
 It uses a bridge architecture. When a new instance of `LocalStorage` is created, it spawns a worker thread and creates
-a buffer which I like to call as a `ShadowStorage`. <br> Its a ConcurrentHashMap, all read, write, delete operations
-are performed on this `ShadowStorage` and which is conveniently written to a database file by the background worker.
+a buffer which I like to call as a `ShadowStorage`. <br> It's a ConcurrentHashMap, all read, write, delete operations
+are performed on this `ShadowStorage` and which are then conveniently written to a database file by the background worker.
 <br><br>
 What is the advantage of this approach?<br>
 Ans. Faster read, write operations. 
