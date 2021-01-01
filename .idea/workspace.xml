@@ -24,7 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da8b6f8b-3760-414b-b204-cdcd4f1fac3b" name="Default Changelist" comment="added few test cases">
+    <list default="true" id="da8b6f8b-3760-414b-b204-cdcd4f1fac3b" name="Default Changelist" comment="updated the artifact.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -209,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609495579870</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated the artifact.">
+      <created>1609505612885</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609505612885</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -235,7 +242,8 @@
     <MESSAGE value="added time to live. Data will not be returned if read after ttl. Throws exception." />
     <MESSAGE value="added builder class for LocalStorage initialisation" />
     <MESSAGE value="added few test cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="added few test cases" />
+    <MESSAGE value="updated the artifact." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the artifact." />
   </component>
   <component name="WindowStateProjectService">
     <state x="472" y="232" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609406506153">
@@ -307,10 +315,11 @@
     </state>
     <state x="200" y="4" key="SettingsEditor/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609493024170" />
     <state x="200" y="4" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1609149323456" />
-    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1609495581722">
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1609505615327">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860/-1360.0.1360.728@0.0.1440.860" timestamp="1609495581722" />
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1609505615327" />
     <state x="424" y="321" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1609493039495">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
