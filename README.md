@@ -48,14 +48,14 @@ delete(String key);
 
 ## How does it work
 
-It uses a bridge architecture. When a new instance of `LocalStorage` is created, it spawns a worker thread and creates<br>
-a buffer which I like to call as a `ShadowStorage`. Its a ConcurrentHashMap, all read, write, delete operations<br>
+It uses a bridge architecture. When a new instance of `LocalStorage` is created, it spawns a worker thread and creates
+a buffer which I like to call as a `ShadowStorage`. <br> Its a ConcurrentHashMap, all read, write, delete operations
 are performed on this `ShadowStorage` and which is conveniently written to a database file by the background worker.
-
+<br><br>
 What is the advantage of this approach?<br>
 Ans. Faster read, write operations. 
-
-As the `ShadowStorage` uses ConcurrentHashMap it is thread-safe and the worker thread locks database file thus making it inaccessible <br> 
+<br><br>
+As the `ShadowStorage` uses ConcurrentHashMap it is thread-safe and the worker thread locks database file thus making it inaccessible
 by any other process.
 
 
